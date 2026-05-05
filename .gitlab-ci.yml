@@ -1,0 +1,10 @@
+build_thesis:
+  image: texlive/texlive:latest
+  script:
+    - cd thesis/my-thesis-latex
+    - export BIBINPUTS="$PWD:" BSTINPUTS="$PWD:"
+    - latexmk -pdf -interaction=nonstopmode -file-line-error -outdir=.. thesis.tex
+  artifacts:
+    paths:
+      - thesis/thesis.pdf
+    expire_in: 6 months

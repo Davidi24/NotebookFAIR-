@@ -1,0 +1,100 @@
+\documentclass[a4paper, 12pt, oneside, BCOR1cm,toc=chapterentrywithdots]{scrbook}
+
+\usepackage{graphicx}
+\usepackage{makeidx}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{tocbibind}
+\usepackage{blindtext}
+\usepackage{subfigure}
+\usepackage{acronym}
+
+\hypersetup{%
+bookmarksnumbered=true, hyperindex=true,
+bookmarksopen=true, bookmarksopenlevel=1,
+pdfborder=0 0 0
+}
+
+\renewcommand*{\tableofcontents}{%
+    \begingroup
+    \tocsection
+    \tocfile{\contentsname}{toc}
+    \endgroup
+}
+\renewcommand*{\listoffigures}{%
+    \begingroup
+    \tocsection
+    \tocfile{\listfigurename}{lof}
+    \endgroup
+}
+\renewcommand{\listoftables}{
+    \begingroup
+    \tocsection
+    \tocfile{\listtablename}{lot}
+    \endgroup
+}
+
+\begin{document}
+
+%--------titlepage
+\begin{titlepage}
+{
+    \begin{center}
+        \raisebox{-1ex}{\includegraphics[scale=1.5]{../template/TU_Chemnitz_positiv_gruen.pdf}}\\
+    \end{center}
+    \vspace{0.5cm}
+}
+\begin{center}
+\LARGE{\textbf{Title of Master Thesis}}\\
+\vspace{1cm}
+\Large{\textbf{Master Thesis}}\\
+\vspace{1cm}
+Submitted in Fulfilment of the\\
+Requirements for the Academic Degree\\
+M.Sc.\\
+\vspace{0.5cm}
+Dept. of Computer Science\\
+Chair of Distributed and Self-organizing Systems
+\end{center}
+\vspace{3cm}
+Submitted by: David Keci\\
+Student ID: \\
+Date: \\
+\vspace{0.3cm}\\
+Supervisor: Prof. Dr. Sheeba Samuel
+
+\end{titlepage}
+
+\addchap*{Abstract}
+% Write your abstract here
+\blindtext
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+%---------------------------------------------------------
+% Here starts your thesis
+%---------------------------------------------------------
+
+\chapter{Introduction}
+\input{src/introduction}
+
+% Add more chapters below:
+% \chapter{Background}
+% \input{src/background}
+
+% \chapter{Methodology}
+% \input{src/methodology}
+
+% \chapter{Results}
+% \input{src/results}
+
+% \chapter{Conclusion}
+% \input{src/conclusion}
+
+%---------------------------------------------------------
+\nocite{*}
+\bibliographystyle{splncs03}
+\bibliography{bibliography}
+
+\end{document}
